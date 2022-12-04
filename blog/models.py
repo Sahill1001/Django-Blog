@@ -6,6 +6,7 @@ class Post(models.Model):
     title= models.CharField(max_length=30)
     content=models.TextField()
     author= models.CharField(max_length=10)
+    image=models.ImageField(upload_to='static/blog',blank=True)
     date=models.DateTimeField(blank=True)
     
     def __str__(self):
