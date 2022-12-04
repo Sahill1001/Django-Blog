@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{% block title %}
+  Contact
+{% endblock %}
+{% block contactactive %}
+  active
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block js %}
+{% endblock %}
+{% block body %}
+  <div class="container">
+    <h2>Contact iStudent admin</h2>
+    <form method="post" action="/contact/">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="name" class="form-label">Full name</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" />
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone no.</label>
+        <input type="tel" class="form-control" id="phone" name="phone" />
+      </div>
+      <div class="mb-3">
+        <label for="dec" class="form-label">Issues</label>
+        <textarea class="form-control" id="dec" name="dec" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
