@@ -48,9 +48,9 @@
             <div class="col-lg-4">
               <img src="{{ post.image.url }}" class="img-fluid" alt="Img" />
               <h2 class="fw-normal">{{ post.title }}</h2>
-              <p>{{ post.content }}</p>
+              <p>{{ post.content|slice:":30"}}</p>
               <p>
-                <a class="btn btn-secondary" href="#">View details &raquo;</a>
+                <a class="btn btn-secondary" href="/blog/{{post.slug}}">View details &raquo;</a>
               </p>
             </div>
           {% endfor %}
@@ -70,7 +70,7 @@
           <div class="col-md-7">
           {% endif %}
             <h2 class="featurette-heading fw-normal lh-1">{{post.title}}<span class="text-muted"> It’ll blow your mind.</span></h2>
-            <p class="lead">{{post.content}}</p>
+            <p class="lead">{{post.content|slice:":300"}}</p>
           </div>
           <div class="col-md-5">
             <img src="{{ post.image.url }}" class="img-fluid" alt="Img" />

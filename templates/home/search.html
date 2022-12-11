@@ -1,9 +1,8 @@
 {% extends 'basic.html' %}
 {% block title %}
-  BlogHome
+  Search
 {% endblock %}
 {% block blogactive %}
-  active
 {% endblock %}
 {% block css %}
 
@@ -31,13 +30,13 @@
       <div class="container marketing">
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          {% for post in allPosts %}
+          {% for post in post %}
             <div class="col-lg-4">
               <img src="{{ post.image.url }}" class="img-fluid" alt="Img" />
               <h2 class="fw-normal">{{ post.title }}</h2>
               <p>{{ post.content|slice:":30"}}</p>
               <p>
-                <a class="btn btn-secondary" href="{{post.slug}}">View details &raquo;</a>
+                <a class="btn btn-secondary" href="/blog/{{post.slug}}">View details &raquo;</a>
               </p>
             </div>
           {% endfor %}

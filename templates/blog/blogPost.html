@@ -7,5 +7,15 @@
 {% block js %}
 {% endblock %}
 {% block body %}
-  This is Blog post page
+
+<div class="container my-3">
+<div class="blog-post">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        <p class="blog-post-meta">{{post.date}} by <a href="/about/">{{post.author}}</a></p>
+        <img src="{{post.image.url}}" class="img-fluid" alt="...">
+
+        <p>{{post.content}}</p>
+        <hr>
+      </div>
+      </div>
 {% endblock %}

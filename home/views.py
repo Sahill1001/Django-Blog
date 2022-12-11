@@ -9,6 +9,12 @@ def home(request):
     context = {'allPosts': allPosts}
     return render(request, 'home/home.html', context)
 
+def search(request):
+    query=request.GET.get("query")
+    post= Post.objects.filter(title__contains=query)
+    context={'post':post}
+    return render(request, 'home/search.html', context)
+
 
 def about(request):
     return render(request, 'home/about.html')
