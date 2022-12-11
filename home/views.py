@@ -15,7 +15,11 @@ def search(request):
         allPosts=[]
         messages.error(request, 'Query is too long')
     else:   
-        allPosts= Post.objects.filter(title__contains=query)
+        allPostsTitle= Post.objects.filter(title__contains=query)
+        allPostsContent= Post.objects.filter(content__contains=query)
+        allPostsAutor= Post.objects.filter(author__contains=query)
+        allPostsTitCont=allPostsTitle.union(allPostsContent)  
+        allPosts=allPostsAutor.union(allPostsTitCont)  
     if len(allPosts) < 1 :
         messages.warning(request, 'No search result found please refine your query')
     else:

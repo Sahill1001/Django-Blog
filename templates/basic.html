@@ -40,10 +40,17 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search" method="get" action="/search">
+          <form class="d-flex mx-3" role="search" method="get" action="/search">
             <input class="form-control me-2" type="search" name="query" id="query" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
+              <!-- Button trigger SignUp modal -->
+          <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#signUpModal">
+            SignUp
+          </button>          
+          <button type="button" class="btn btn-success mr-2" data-bs-toggle="modal" data-bs-target="#signInModal">
+            LogIn
+          </button>
         </div>
       </div>
     </nav>
@@ -54,6 +61,71 @@
     </div>
     {% endfor %}
 
+<!--SignUp Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="signUpModalTitle">SignUp Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="choose uniqe username">
+          </div>
+          <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name">
+          </div>          
+          <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name">
+          </div>         
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+          </div>         
+          <div class="mb-3">
+            <label for="pass1" class="form-label">Choose password</label>
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter password">
+          </div>         
+          <div class="mb-3">
+            <label for="pass2" class="form-label">Conform password</label>
+            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter password again">
+          </div>
+          <button type="submit" class="btn btn-primary ">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--SignIn Modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="signInModalTitle">SignIn Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="#" method="post">
+          <div class="mb-3">
+            <label for="loginusername" class="form-label">Username</label>
+            <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter username">
+          </div>
+          <div class="mb-3">
+            <label for="pass" class="form-label">Enter password</label>
+            <input type="password" class="form-control" id="pass" name="pass1" placeholder="Enter password">
+          </div>         
+          <button type="submit" class="btn btn-primary ">SignIn</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     {% block body %}{% endblock %}
           <!-- FOOTER -->
           <footer class="container align-center d-flex justify-content-center">
