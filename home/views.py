@@ -11,8 +11,16 @@ def home(request):
 
 def search(request):
     query=request.GET.get("query")
-    post= Post.objects.filter(title__contains=query)
-    context={'post':post}
+    if len(query)>70:
+        allPosts=[]
+        messages.error(request, 'Query is too long')
+    else:   
+        allPosts= Post.objects.filter(title__contains=query)
+    if len(allPosts) < 1 :
+        messages.warning(request, 'No search result found please refine your query')
+    else:
+        messages.success(request, f'{len(allPosts)} Result found.')
+    context={'allPosts':allPosts,'query':query}
     return render(request, 'home/search.html', context)
 
 

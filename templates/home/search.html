@@ -30,7 +30,20 @@
       <div class="container marketing">
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          {% for post in post %}
+          {% if allPosts|length < 1 %}
+          <div class="col">
+          <h4>No Search Results !!!</h4>
+                your search query :<strong> {{query}}</strong> did not match any documents.<br>
+                Suggestions :
+                    <ul>
+                      <li>Make sure that all words are spelled correctly.</li>
+                      <li>Try different keywords.</li>
+                      <li>Try more general keywords.</li>
+                      <li>Try fewer keywords.</li>
+                    </ul>
+          </div>
+          {% endif %}
+          {% for post in allPosts %}
             <div class="col-lg-4">
               <img src="{{ post.image.url }}" class="img-fluid" alt="Img" />
               <h2 class="fw-normal">{{ post.title }}</h2>
@@ -47,7 +60,7 @@
 
         <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider" />
+        {% comment %} <hr class="featurette-divider" />
         {% for post in allPosts %}
         <div class="row featurette">
           {% if forloop.counter|divisibleby:2 %}
@@ -65,7 +78,7 @@
         <hr class="featurette-divider" />
         {% endfor %}
         <!-- /END THE FEATURETTES -->
-      </div>
+      </div> {% endcomment %}
       <!-- /.container -->
     </div>
   </main>
