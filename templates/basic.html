@@ -70,31 +70,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="#" method="post">
+        <form action="/signup/" method="post">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="choose uniqe username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="choose uniqe username" required>
           </div>
           <div class="mb-3">
             <label for="fname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name">
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name" required>
           </div>          
           <div class="mb-3">
             <label for="lname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name">
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name" required>
           </div>         
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" required>
           </div>         
           <div class="mb-3">
             <label for="pass1" class="form-label">Choose password</label>
-            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter password">
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter password" required>
           </div>         
           <div class="mb-3">
             <label for="pass2" class="form-label">Conform password</label>
-            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter password again">
-          </div>
+            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter password again" required>
+          </div>{% csrf_token %}
           <button type="submit" class="btn btn-primary ">Submit</button>
         </form>
       </div>
@@ -111,16 +111,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="#" method="post">
+        <form action="/login/" method="post">
+          {% csrf_token %}
           <div class="mb-3">
             <label for="loginusername" class="form-label">Username</label>
-            <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter username">
+            <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter username" required>
           </div>
           <div class="mb-3">
-            <label for="pass" class="form-label">Enter password</label>
-            <input type="password" class="form-control" id="pass" name="pass1" placeholder="Enter password">
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginpass" name="loginpass" placeholder="Enter password" required>
           </div>         
-          <button type="submit" class="btn btn-primary ">SignIn</button>
+          <button type="submit" class="btn btn-primary ">LogIn</button>
         </form>
       </div>
     </div>
@@ -130,7 +131,7 @@
           <!-- FOOTER -->
           <footer class="container align-center d-flex justify-content-center">
             <p>
-              &copy; 2023 iStudent -All copyrights reserved-by>>Sahil_Prasad.
+              &copy; 2023 iStudent -All copyrights reserved-by > Sahil_Prasad.
             </p>
           </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
