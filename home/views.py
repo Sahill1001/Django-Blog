@@ -58,7 +58,9 @@ def handleUser(request):
         lname=request.POST['lname']
         pass1=request.POST['pass1']
         pass2=request.POST['pass2']
-        
+        if User.objects.filter(username = username).first():
+            messages.error(request,f"{username} username is already taken please try something different.")
+            return redirect('Home')
         if not username.isalnum():
             messages.error(request, " User name should only contain letters and numbers")
             return redirect('Home')
@@ -85,6 +87,7 @@ def handleLogin(request):
         password = request.POST['loginpass']
         user = authenticate(username=username, password=password)
         if user is not None:
+            login(request, user)
             messages.success(request,"You have been logged in successfully.")
             return redirect("Home")
         else:
@@ -92,8 +95,7 @@ def handleLogin(request):
             return redirect("Home")
     else:
         return HttpResponse("404- Not Found")
-    
-    
+      
 def handleLogout(request):
     logout(request)
     messages.success(request,"Logout successfully")
