@@ -5,6 +5,7 @@ from blog.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 
+#HTML handled
 
 def home(request):
     allPosts = Post.objects.all()
@@ -29,10 +30,8 @@ def search(request):
     context={'allPosts':allPosts,'query':query}
     return render(request, 'home/search.html', context)
 
-
 def about(request):
     return render(request, 'home/about.html')
-
 
 def contact(request):
     if request.method == "POST":
@@ -49,6 +48,7 @@ def contact(request):
     return render(request, 'home/contact.html')
 
 
+# Authentication APIs
 
 def handleUser(request):
     if request.method=='POST':
@@ -78,9 +78,7 @@ def handleUser(request):
     
     else:
         return HttpResponse("404 - Not found")
-    
-    
-    
+      
 def handleLogin(request):
     if request.method=="POST":
         username = request.POST['loginusername']
@@ -100,5 +98,5 @@ def handleLogout(request):
     logout(request)
     messages.success(request,"Logout successfully")
     return redirect("Home")
-    
-    
+
+

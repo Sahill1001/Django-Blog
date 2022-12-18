@@ -3,19 +3,26 @@
   BlogPost
 {% endblock %}
 {% block css %}
+
 {% endblock %}
 {% block js %}
+
 {% endblock %}
 {% block body %}
-
-<div class="container my-3">
-<div class="blog-post">
-        <h2 class="blog-post-title">{{post.title}}</h2>
-        <p class="blog-post-meta">{{post.date}} by <a href="/about/">{{post.author}}</a></p>
-        <img src="{{post.image.url}}" class="img-fluid" alt="...">
-
-        <h4><pre>{{post.content}}</pre></h4>
-        <hr>
-      </div>
-      </div>
+  <div class="container my-3">
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+    <p class="blog-post-meta">
+      {{ post.date }} by <a href="/about/">{{ post.author }}</a>
+    </p>
+    <img src="{{ post.image.url }}" class="img-fluid" alt="..." />
+    <p>{{ post.content }}</p>
+    <hr />
+  </div>
+  <div class="container">
+    <h2>Comments</h2>
+    <div class="row my-3">
+      <div class="col-md-2 bg-success">Image</div>
+      <div class="col-md-10 bg-primary">Say something</div>
+    </div>
+  </div>
 {% endblock %}
